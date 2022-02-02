@@ -1,0 +1,19 @@
+version: '2'
+services:
+  homebridge:
+    image: oznu/homebridge:latest
+    container_name: homebridge
+    restart: always
+    network_mode: host
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8581
+      - HOMEBRIDGE_INSECURE=1
+      - TZ=America/Los_Angeles
+      - QEMU_ARCH=x86_64
+      - S6_KEEP_ENV=1
+      - ENABLE_AVAHI=0
+    volumes:
+      - '/data/homebridge:/homebridge'
