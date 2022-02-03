@@ -10,8 +10,10 @@ if [ ! -d "$path2" ]; then
         mkdir $path2
 fi
 
-curl https://raw.githubusercontent.com/mbierman/homebridge-installer/main/docker-compose.yaml \
-> $path2/docker-compose.yaml
+curl https://raw.githubusercontent.com/mbierman/homebridge-installer/main/docker-compose.yaml > $path2/docker-compose.yaml
+
+read < /dev/tty -p "Enter SSC IP: $ip " ip && ip=${ip:-1.1.1.1}
+printf "\n"
 
 echo "What is your timezone? (see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
 echo -n "Enter your timezone and press [ENTER]: "
