@@ -12,12 +12,11 @@ fi
 
 curl https://raw.githubusercontent.com/mbierman/homebridge-installer/main/docker-compose.yaml > $path2/docker-compose.yaml
 
-read < /dev/tty -p "Enter SSC IP: $ip " ip && ip=${ip:-1.1.1.1}
+echo "What is your timezone? (see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+
+read < /dev/tty -p "Enter your timezone and press [ENTER]: $TZ " TZ && TZ=${TZ:-America/Los_Angeles}
 printf "\n"
 
-echo "What is your timezone? (see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
-echo -n "Enter your timezone and press [ENTER]: "
-read TZ
 
 sed "s|TZ.*|TZ=${TZ}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp
 mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
