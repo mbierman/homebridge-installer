@@ -5,56 +5,42 @@ if [ ! -d "$path1" ]; then
         sudo mkdir $path1
 fi
 
-path2=/home/pi/.firewalla/run/docker/homebridge/
+path2=/home/pi/.firewalla/run/docker/homebridge
 if [ ! -d "$path2" ]; then
         mkdir $path2
 fi
 
-curl https://raw.githubusercontent.com/mbierman/homebridge-installer/main/docker-compose.yml \
+curl https://raw.githubusercontent.com/mbierman/homebridge-installer/main/docker-compose.yaml \
 > $path2/docker-compose.yaml
 
-cd $path2
+echo "What is your timezone? (see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+echo -n "Enter your timezone and press [ENTER]: "
+read TZ
 
+sed "s|TZ.*|TZ=${TZ}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp && mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
+
+echo -e  "\n\nWhat port do you want to run homebridge on? (8080 is the default)" 
+echo -n "Enter the port you want to use and press [ENTER]: "
+read port
+
+
+sed "s|HOMEBRIDGE_CONFIG_UI_PORT.*|HOMEBRIDGE_CONFIG_UI_PORT=${port}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp && mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
+
+cd $path2
 sudo systemctl start docker
 sudo docker-compose up --detach
 
 sudo docker ps
 
 echo -n "Starting docker"
-while [ -z "$(sudo docker ps | grep unifi | grep Up)" ]
+while [ -z "$(sudo docker ps | grep homebridge | grep Up)" ]
 do
         echo -n "."
         sleep 2s
 done
 echo "Done"
 
-
-path3=/home/pi/.firewalla/config/post_main.d
-if [ ! -d "$path3" ]; then
-        mkdir $path3
-fi
-
-echo "#!/bin/bash
-sudo systemctl start docker
-sudo systemctl start docker-compose@unifi
-sudo ipset create -! docker_lan_routable_net_set hash:net
-sudo ipset add -! docker_lan_routable_net_set 172.16.1.0/24
-sudo ipset create -! docker_wan_routable_net_set hash:net
-sudo ipset add -! docker_wan_routable_net_set 172.16.1.0/24" >  /home/pi/.firewalla/config/post_main.d/start_unifi.sh
-
-chmod a+x /home/pi/.firewalla/config/post_main.d/start_unifi.sh
-
-sudo docker stop unifi
-sudo docker start unifi
-
-echo -n "Restarting docker"
-while [ -z "$(sudo docker ps | grep unifi | grep Up)" ]
-do
-        echo -n "."
-        sleep 2s
-done
-
 sudo docker container prune -f && sudo docker image prune -fa
 # sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge
 
-echo -e "Done!\n\nYou can open https://fire.walla:8581/ in your favorite browser and set up your Homebridge.\n\n"
+echo -e "Done!\n\nYou can open http://fire.walla:$port in your favorite browser and set up your Homebridge.\n\n"
