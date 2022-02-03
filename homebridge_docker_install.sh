@@ -10,12 +10,13 @@ if [ ! -d "$path2" ]; then
         mkdir $path2
 fi
 
-curl https://gist.githubusercontent.com/mbierman/f678519a3f5db2b478fc506726d84a46/raw/c899d19409c665d57964dd1ec0d7de393c78914f/docker-compose.yaml \
+curl https://raw.githubusercontent.com/mbierman/homebridge-installer/main/docker-compose.yml \
 > $path2/docker-compose.yaml
 
 cd $path2
 
-sudo systemctl start docker-compose@unifi
+sudo systemctl start docker
+sudo docker-compose up --detach
 
 sudo docker ps
 
@@ -27,11 +28,6 @@ do
 done
 echo "Done"
 
-sudo ip route add 172.16.1.0/24 dev br-$(sudo docker network ls | awk '$2 == "unifi_default" {print $1}') table lan_routable
-sudo ip route add 172.16.1.0/24 dev br-$(sudo docker network ls | awk '$2 == "unifi_default" {print $1}') table wan_routable
-echo address=/unifi/172.16.1.2 > ~/.firewalla/config/dnsmasq_local/unifi
-sudo systemctl restart firerouter_dns
-sudo docker-compose down
 
 path3=/home/pi/.firewalla/config/post_main.d
 if [ ! -d "$path3" ]; then
@@ -57,4 +53,8 @@ do
         echo -n "."
         sleep 2s
 done
-echo -e "Done!\n\nYou can open https://172.16.1.2:8443/ in your favorite browser and set up your UniFi Controller.\n\n"
+
+sudo docker container prune -f && sudo docker image prune -fa
+# sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge
+
+echo -e "Done!\n\nYou can open https://fire.walla:8581/ in your favorite browser and set up your Homebridge.\n\n"
