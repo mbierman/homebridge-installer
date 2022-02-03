@@ -17,14 +17,16 @@ echo "What is your timezone? (see https://en.wikipedia.org/wiki/List_of_tz_datab
 echo -n "Enter your timezone and press [ENTER]: "
 read TZ
 
-sed "s|TZ.*|TZ=${TZ}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp && mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
+sed "s|TZ.*|TZ=${TZ}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp && mv $path2/docker-compose.yaml.tmp $path2/docke
+r-compose.yaml
 
 echo -e  "\n\nWhat port do you want to run homebridge on? (8080 is the default)" 
 echo -n "Enter the port you want to use and press [ENTER]: "
 read port
 
 
-sed "s|HOMEBRIDGE_CONFIG_UI_PORT.*|HOMEBRIDGE_CONFIG_UI_PORT=${port}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp && mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
+sed "s|HOMEBRIDGE_CONFIG_UI_PORT.*|HOMEBRIDGE_CONFIG_UI_PORT=${port}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp &
+& mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
 
 cd $path2
 sudo systemctl start docker
@@ -32,15 +34,27 @@ sudo docker-compose up --detach
 
 sudo docker ps
 
+path3=/home/pi/.firewalla/config/post_main.d
+
+if [ ! -d "$path3" ]; then
+	mkdir $path3
+fi	
+
+echo "#!/bin/bash
+
+sudo systemctl start docker
+sudo systemctl start docker-compose@homebridge " > $path3/start_homebridge.sh
+$path3/start_homebridge.sh
+
 echo -n "Starting docker"
 while [ -z "$(sudo docker ps | grep homebridge | grep Up)" ]
 do
         echo -n "."
         sleep 2s
 done
-echo "Done"
 
 sudo docker container prune -f && sudo docker image prune -fa
 # sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge
 
+echo "Done"
 echo -e "Done!\n\nYou can open http://fire.walla:$port in your favorite browser and set up your Homebridge.\n\n"
