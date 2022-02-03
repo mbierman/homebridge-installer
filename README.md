@@ -30,7 +30,6 @@ WARNING: if you use these commands you are stopping and removing the container. 
 ```
 sudo docker-compose down && sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge && sudo docker system prune && sudo systemctl start docker
 rm /home/pi/.firewalla/config/post_main.d/start_homebridge.sh
-rm -rf /home/pi/.firewalla/run/docker/homebridge
 ```
 
 There are lots of homebridge communities on [Reddit](https://www.reddit.com/r/homebridge/) and [discord](https://discord.com/channels/432663330281226270/432671265774632961). If you have homebridge questions, please check there. 
