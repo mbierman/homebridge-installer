@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 path1=/data/homebridge
 if [ ! -d "$path1" ]; then
