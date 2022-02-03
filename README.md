@@ -4,10 +4,12 @@ This is a "1.0" script for installing the [Homebridge docker container](https://
 
 To install, [learn how to ssh into your firewalla](https://help.firewalla.com/hc/en-us/articles/115004397274-How-to-access-Firewalla-using-SSH-) if you don't know how already.
 
+Beyond that, all you need to know to get this running is how to copy/paste.
+
 Next, copy the line below and paste into the Firewalla shell. 
 
  ```
- curl -s -L -C- https://raw.githubusercontent.com/mbierman/unifi-installer/main/unifi_docker_install.sh | cat <(cat <(bash))
+ curl -s -L -C- https://raw.githubusercontent.com/mbierman/homebridge-installer/main/homebridge_docker_install.sh | cat <(cat <(bash))
 ```
 
 **Standard disclaimer:** I can not be responsible for any issues that may result. Nothing in the script should in any way, affect firewalla as a router or comprimise security. Happy to answer questions though if I can. :)
@@ -25,4 +27,10 @@ rm ~/.firewalla/config/dnsmasq_local/unifi
 rm -rf /home/pi/.firewalla/run/docker/unifi
 ```
 
-There are lots of UniFi communities on [Reddit](https://www.reddit.com/r/Ubiquiti/) and [Facebook](https://www.facebook.com/groups/586080611853291). If you have UniFi questions, please check there. 
+There are lots of homebridge communities on [Reddit](https://www.reddit.com/r/homebridge/) and [discord](https://discord.com/channels/432663330281226270/432671265774632961). If you have homebridge questions, please check there. 
+
+# What is Homebridge?
+
+> Homebridge is a lightweight NodeJS server you can run on your home network that emulates the iOS HomeKit API. It supports Plugins, which are community-contributed modules that provide a basic bridge from HomeKit to various 3rd-party APIs provided by manufacturers of "smart home" devices.
+
+>Since Siri supports devices added through HomeKit, this means that with Homebridge you can ask Siri to control devices that don't have any support for HomeKit at all."
