@@ -17,7 +17,7 @@ echo "What is your timezone? (see https://en.wikipedia.org/wiki/List_of_tz_datab
 echo -n "Enter your timezone and press [ENTER]: "
 read TZ
 
-sed "s|TZ.*|TZ=${TZ}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp && \
+sed "s|TZ.*|TZ=${TZ}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp
 mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
 
 echo -e  "\n\nWhat port do you want to run homebridge on? (8080 is the default)" 
@@ -25,8 +25,8 @@ echo -n "Enter the port you want to use and press [ENTER]: "
 read port
 
 
-sed "s|HOMEBRIDGE_CONFIG_UI_PORT.*|HOMEBRIDGE_CONFIG_UI_PORT=${port}|g" $path2/docker-compose.yaml > \ 
-$path2/docker-compose.yaml.tmp && mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
+sed "s|HOMEBRIDGE_CONFIG_UI_PORT.*|HOMEBRIDGE_CONFIG_UI_PORT=${port}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp
+mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
 
 cd $path2
 sudo systemctl start docker
