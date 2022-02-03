@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#test 
 path1=/data/homebridge
 if [ ! -d "$path1" ]; then
         sudo mkdir $path1
