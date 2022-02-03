@@ -28,7 +28,7 @@ If you need to reset the container (stop and remove and try again) run the follo
 WARNING: if you use these commands you are stopping and removing the container. Don't do this unless you are sure that you don't mind potentially losing stuff. If you haven't managed to get the Controller running then there is probably no harm in going forward. Otherwise, only do this if you know at least a little bit about what you are doing. And always backup.
 
 ```
-sudo docker-compose down && sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge && sudo docker system prune && sudo systemctl start docker
+sudo docker-compose down && sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge && sudo docker system prune && sudo systemctl stop docker
 rm /home/pi/.firewalla/config/post_main.d/start_homebridge.sh
 ```
 
