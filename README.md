@@ -6,7 +6,7 @@ To install, [learn how to ssh into your firewalla](https://help.firewalla.com/hc
 
 Beyond that, all you need to know to get this running is how to copy/paste.
 
-Next, copy the line below and paste into the Firewalla shell. 
+Next, copy the line below and paste into the Firewalla shell and then hit Return. 
 
  ```
  curl -s -L -C- https://raw.githubusercontent.com/mbierman/homebridge-installer/main/homebridge_docker_install.sh | cat <(cat <(bash))
