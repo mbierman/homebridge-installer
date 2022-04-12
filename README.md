@@ -32,10 +32,16 @@ Now you can see Firewalla's temperature as a homekit sensor.
 
 If you need to reset the container (stop and remove and try again) run the following commands.
 
-WARNING: if you use these commands you are stopping and removing the container. Don't do this unless you are sure that you don't mind potentially losing stuff. If you haven't managed to get the Controller running then there is probably no harm in going forward. Otherwise, only do this if you know at least a little bit about what you are doing. And always backup.
+WARNING: if you use these commands you are stopping and removing the container. Don't do this unless you are sure that you don't mind potentially losing your homebridge configuration. If you haven't managed to get the Controller running then there is probably no harm in this: nothing to lose.
+
+Otherwise, only do this if you know at least a little bit about what you are doing. And always backup.
 
 ```
-sudo docker-compose down && sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge && sudo docker system prune && sudo systemctl stop docker
+# This stops the homebridge container and removes it to get you back to a clean state.
+sudo docker-compose down && sudo docker container stop homebridge && \
+sudo docker container rm homebridge && sudo docker image rm oznu/homebridge && sudo docker system prune && sudo systemctl stop docker
+
+# this removes the startup script 
 rm /home/pi/.firewalla/config/post_main.d/start_homebridge.sh
 ```
 
