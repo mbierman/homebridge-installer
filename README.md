@@ -48,4 +48,6 @@ sudo docker container rm homebridge && sudo docker image rm oznu/homebridge && s
 rm /home/pi/.firewalla/config/post_main.d/start_homebridge.sh
 ```
 
+You can also use the `resetdocker.sh` script to reset docker to a prestine state. 
+
 There are lots of homebridge communities on [Reddit](https://www.reddit.com/r/homebridge/) and [discord](https://discord.com/channels/432663330281226270/432671265774632961). If you have homebridge questions, please check there. 
