@@ -21,7 +21,7 @@ Next, copy the line below and paste into the Firewalla shell and then hit Return
 >Since Siri supports devices added through HomeKit, this means that with Homebridge you can ask Siri to control devices that don't have any support for HomeKit at all."
 
 # Why run homebridge on Firewalla?
-You can run Homebridge on lots of devices. If you don't have a NAS or Raspberry Pi around Fireawlla is an alternative. But most interesting is to monitor Firewalla's temperature. You also get dashboard readings about CPU load and memory consumption: 
+You can run Homebridge on lots of devices. If you don't have a NAS or Raspberry Pi around Fireawlla is an alternative. But most interesting to me was to monitor Firewalla's own stats. You also get dashboard readings about CPU load and memory consumption: 
 
 <img width="1253" alt="image" src="https://user-images.githubusercontent.com/1205471/163029657-83b49c2e-fae8-4c55-94ed-8e1ec66b0ba3.png">
 
