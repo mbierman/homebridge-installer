@@ -28,7 +28,7 @@ You can run Homebridge on lots of devices. If you don't have a NAS or Raspberry 
 And the CPU temperatures:
 ![image](https://user-images.githubusercontent.com/1205471/163027786-7d2168f7-0392-4fff-9e67-42a69cd5a069.png)
 
-Now you can see Firewalla's temperature as a homekit sensor. 
+Now you can see Firewalla's temperature as a homekit sensor. To fully configure this for Firewalla specifically, see the  [Firewalla guide](https://help.firewalla.com/hc/en-us/articles/360053184374-Guide-Install-HomeBridge-on-Firewalla-).
 
 
 # Uninstalling
