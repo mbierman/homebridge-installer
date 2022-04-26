@@ -30,6 +30,8 @@ And the CPU temperatures:
 
 Now you can see Firewalla's temperature as a homekit sensor. To fully configure this for Firewalla specifically, see the  [Firewalla guide](https://help.firewalla.com/hc/en-us/articles/360053184374-Guide-Install-HomeBridge-on-Firewalla-).
 
+# Updating docker
+[Here's a script](https://gist.github.com/mbierman/6cf22430ca0c2ddb699ac8780ef281ef) for updating docker containers.
 
 # Uninstalling
 
