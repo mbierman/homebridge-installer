@@ -33,6 +33,9 @@ Now you can see Firewalla's temperature as a homekit sensor. To fully configure 
 # Updating docker
 [Here's a script](https://gist.github.com/mbierman/6cf22430ca0c2ddb699ac8780ef281ef) for updating docker containers.
 
+# Restarting after Firewalla update or reboot
+[Here's a script](https://gist.github.com/mbierman/1d0fceaea979f17ca65f1599fb1ebbbb) for restarting Homebridge after reboots and FW upgrades. 
+
 # Uninstalling
 
 If you need to reset the container (stop and remove and try again) run the following commands.
