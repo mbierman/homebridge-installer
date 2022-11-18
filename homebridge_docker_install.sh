@@ -41,6 +41,7 @@ echo "#!/bin/bash
 
 sudo systemctl start docker
 sudo systemctl start docker-compose@homebridge " > $path3/start_homebridge.sh
+sudo chmod +x $path3/start_homebridge.sh
 $path3/start_homebridge.sh
 
 echo -n "Starting docker"
