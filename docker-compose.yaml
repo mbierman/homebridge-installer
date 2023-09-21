@@ -13,3 +13,7 @@ services:
       - TZ=Australia/Sydney
     volumes:
       - '/data/homebridge:/homebridge'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
