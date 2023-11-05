@@ -52,7 +52,7 @@ do
 done
 
 sudo docker container prune -f && sudo docker image prune -fa
-# sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm oznu/homebridge
+# sudo docker container stop homebridge && sudo docker container rm homebridge && sudo docker image rm homebridge/homebridge
 
 echo "Done"
 echo -e "Done!\n\nYou can open http://fire.walla:$port in your favorite browser and set up your Homebridge.\n\n"
