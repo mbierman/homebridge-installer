@@ -51,7 +51,7 @@ sudo docker container rm homebridge
 cd /home/pi/.firewalla/run/docker/homebridge && sudo docker-compose down
 sudo docker image rm -f ubuntu/homebridge
 sudo rm -f /home/pi/.firewalla/run/docker/homebridge/docker-compose.yaml && \
-sudo rm -rf /data/homebridge
+sudo rm -rf /data/homebridge /home/pi/.firewalla/run/docker/homebridge
 sudo docker system prune -af
 ```
 
