@@ -46,15 +46,13 @@ Otherwise, only do this if you know at least a little bit about what you are doi
 
 ```
 # This stops the homebridge container and removes it to get you back to a clean state.
-sudo docker update --restart=no homebridge && \
-sudo docker-compose down && \
-sudo docker stop homebridge && \
-sudo docker rm -f homebridge && \
-sudo docker system prune -af && \
-sudo docker image rm -f ubuntu/homebridge, \
-sudo docker image rm ubuntu/homebridge && sudo docker system prune, \
-sudo rm -f ~/.firewalla/run/docker/homebridge/docker-compose.yaml , \
+sudo docker update --restart=no homebridge && sudo docker stop homebridge 
+sudo docker container rm homebridge
+cd /home/pi/.firewalla/run/docker/homebridge && sudo docker-compose down
+sudo docker image rm -f ubuntu/homebridge
+sudo rm -f /home/pi/.firewalla/run/docker/homebridge/docker-compose.yaml && \
 sudo rm -rf /data/homebridge
+sudo docker system prune -af
 ```
 
 You can also use the `resetdocker.sh` script to reset docker to a prestine state. 
