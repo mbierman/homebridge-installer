@@ -2,14 +2,13 @@
 
 This is a script for installing the [Homebridge docker container](https://github.com/oznu/docker-homebridge) on Firewalla Gold or Purple. It should get you up and running. It is based on the [Firewalla tutorial](https://help.firewalla.com/hc/en-us/articles/360053184374-Guide-Install-HomeBridge-on-Firewalla-).
 
-To install, [learn how to ssh into your firewalla](https://help.firewalla.com/hc/en-us/articles/115004397274-How-to-access-Firewalla-using-SSH-) if you don't know how already.
-
 ⚠️ Note: One user reported that the latest homebridge is no longer working with firewalla boxes running Ubuntu 18.x. If you want to run Homebridge on firewalla, I recommend flashing to the latest firewalla release
 * [Purple/Purple SE](https://help.firewalla.com/hc/en-us/articles/4407636001555-Resetting-Firewalla-Purple-Purple-SE#h_01FGJZDHFVJAZ93W64KMERS22R)
 * [Gold SE](https://help.firewalla.com/hc/en-us/articles/19523706861843)
 * [Gold/Gold Plus](https://help.firewalla.com/hc/en-us/articles/360048626153-Firewalla-Gold-and-Gold-Plus-How-to-Flash-Installer-Image)
 * [Gold Pro](https://help.firewalla.com/hc/en-us/articles/30466076408467-Firewalla-Gold-Pro-How-to-Flash-Installer-Image)
 
+To install, [learn how to ssh into your firewalla](https://help.firewalla.com/hc/en-us/articles/115004397274-How-to-access-Firewalla-using-SSH-) if you don't know how already.
 
 Beyond that, all you need to know to get this running is how to copy/paste.
 
