@@ -5,10 +5,10 @@ This is a script for installing the [Homebridge docker container](https://github
 To install, [learn how to ssh into your firewalla](https://help.firewalla.com/hc/en-us/articles/115004397274-How-to-access-Firewalla-using-SSH-) if you don't know how already.
 
 Note: One user reported that the latest homebridge isn't working with firewallas running Ubuntu 18.x. If you want to run Homebridge on firewalla, I recommend flashing to the latest
-* [Purple/Purple SE ]([url](https://help.firewalla.com/hc/en-us/articles/4407636001555-Resetting-Firewalla-Purple-Purple-SE#h_01FGJZDHFVJAZ93W64KMERS22R))
-* [Gold SE]([url](https://help.firewalla.com/hc/en-us/articles/19523706861843))
-* [Gold/Gold Plus]([url](https://help.firewalla.com/hc/en-us/articles/360048626153-Firewalla-Gold-and-Gold-Plus-How-to-Flash-Installer-Image))
-* [Gold Pro]([url](https://help.firewalla.com/hc/en-us/articles/30466076408467-Firewalla-Gold-Pro-How-to-Flash-Installer-Image))
+* [Purple/Purple SE ](https://help.firewalla.com/hc/en-us/articles/4407636001555-Resetting-Firewalla-Purple-Purple-SE#h_01FGJZDHFVJAZ93W64KMERS22R)
+* [Gold SE](https://help.firewalla.com/hc/en-us/articles/19523706861843)
+* [Gold/Gold Plus]((https://help.firewalla.com/hc/en-us/articles/360048626153-Firewalla-Gold-and-Gold-Plus-How-to-Flash-Installer-Image)
+* [Gold Pro]([https://help.firewalla.com/hc/en-us/articles/30466076408467-Firewalla-Gold-Pro-How-to-Flash-Installer-Image)
 
 
 Beyond that, all you need to know to get this running is how to copy/paste.
