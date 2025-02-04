@@ -1,4 +1,4 @@
-# Install Homebridge Docker Container on Firewalla Gold, Gold SE, Gold Pro or Purple
+# Install Homebridge Docker Container on Firewalla Gold, Gold SE, Gold Pro ~~or Purple~~
 
 This is a script for installing the [Homebridge docker container](https://github.com/oznu/docker-homebridge) on Firewalla Gold ~~or Purple~~ . It should get you up and running. It is based on the [Firewalla tutorial](https://help.firewalla.com/hc/en-us/articles/360053184374-Guide-Install-HomeBridge-on-Firewalla-).
 
