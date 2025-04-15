@@ -12,13 +12,14 @@ fi
 
 TZ=$(cat /etc/timezone)
 
-# Prompt the user to confirm or enter a new timezone.
-read -p "Enter your timezone and press [ENTER] (default: $TZ): " user_input
+# Prompt the user with the current value pre-filled and editable.
+# Note: -e enables readline, -i sets the initial value.
+read -e -i "$TZ" -p "Enter your timezone and press [ENTER]: " user_input
 
-# If the user doesn't enter anything, it will use the existing value in $TZ.
+# If the user doesn't change anything, $user_input will equal $TZ.
 TZ=${user_input:-$TZ}
 
-# Display the final timezone.
+# Show the final result.
 printf "\nYour timezone is: %s\n" "$TZ"
 
 read < /dev/tty -p "Enter your timezone and press [ENTER]: $TZ " TZ && TZ=${TZ:-America/Los_Angeles}
