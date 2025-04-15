@@ -12,16 +12,14 @@ fi
 
 TZ=$(cat /etc/timezone)
 
-# This line will print the comment
-echo "If you aren't sure, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+# Prompt the user to confirm or enter a new timezone.
+read -p "Enter your timezone and press [ENTER] (default: $TZ): " user_input
 
-# Prompt for the correct timezone and use the existing $TZ if the user doesn't provide input
-read -p "Is this your correct timezone [ENTER]: $TZ " TZ
-TZ=${TZ:-$TZ}  # If the user doesn't enter anything, it will use the value in $TZ
+# If the user doesn't enter anything, it will use the existing value in $TZ.
+TZ=${user_input:-$TZ}
 
-# Display the final timezone
-printf "\n\nYour timezone is: %s\n" "$TZ"
-
+# Display the final timezone.
+printf "\nYour timezone is: %s\n" "$TZ"
 
 read < /dev/tty -p "Enter your timezone and press [ENTER]: $TZ " TZ && TZ=${TZ:-America/Los_Angeles}
 printf "\n\n"
