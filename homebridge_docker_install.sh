@@ -10,14 +10,17 @@ if [ ! -d "$path2" ]; then
         mkdir $path2
 fi
 
-curl https://raw.githubusercontent.com/mbierman/homebridge-installer/main/docker-compose.yaml > $path2/docker-compose.yaml
 TZ=$(cat /etc/timezone)
 
-echo "If you aren't sure, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+# This line will print the comment
+echo "If you aren't sure, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+
+# Prompt for the correct timezone and use the existing $TZ if the user doesn't provide input
 read -p "Is this your correct timezone [ENTER]: $TZ " TZ
 TZ=${TZ:-$TZ}  # If the user doesn't enter anything, it will use the value in $TZ
-printf "\n\n"
 
+# Display the final timezone
+printf "\n\nYour timezone is: %s\n" "$TZ"
 
 
 read < /dev/tty -p "Enter your timezone and press [ENTER]: $TZ " TZ && TZ=${TZ:-America/Los_Angeles}
