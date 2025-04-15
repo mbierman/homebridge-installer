@@ -16,14 +16,16 @@ TZ=$(cat /etc/timezone)
 # Note: -e enables readline, -i sets the initial value.
 read -e -i "$TZ" -p "Enter your timezone and press [ENTER]: " user_input
 
-# If the user doesn't change anything, $user_input will equal $TZ.
+TZ=$(cat /etc/timezone)
+
+# Enable editable pre-filled input (requires bash, not sh)
+read -e -i "$TZ" -p "Enter your timezone and press [ENTER]: " user_input
+
 TZ=${user_input:-$TZ}
 
-# Show the final result.
 printf "\nYour timezone is: %s\n" "$TZ"
 
-read < /dev/tty -p "Enter your timezone and press [ENTER]: $TZ " TZ && TZ=${TZ:-America/Los_Angeles}
-printf "\n\n"
+
 sed "s|TZ.*|TZ=${TZ}|g" $path2/docker-compose.yaml > $path2/docker-compose.yaml.tmp
 mv $path2/docker-compose.yaml.tmp $path2/docker-compose.yaml
 
