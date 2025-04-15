@@ -4,7 +4,7 @@ This is a script for installing the [Homebridge docker container](https://github
 
 ⚠️ Notes:
 * One user reported that the latest homebridge is no longer working with firewalla boxes running Ubuntu 18.x. If you want to run Homebridge on firewalla, I recommend flashing to the latest firewalla release
-* Feb 3, 2025, I'm not sure the latest version of Homebridge runs on Puprle anymore. I just did a clean install on a newly flashed Purple and it didn't come up right away. For now, use caution if that's what you hope to do.
+* Feb 3, 2025, I'm not sure the latest version of Homebridge runs on Puprle anymore. I just did a clean install on a newly flashed Purple and it didn't come up right away. For now, use caution if that's what you hope to do. I think Homebridge is now too big and resource intensive to run on Puprle.
 * [Gold SE](https://help.firewalla.com/hc/en-us/articles/19523706861843)
 * [Gold/Gold Plus](https://help.firewalla.com/hc/en-us/articles/360048626153-Firewalla-Gold-and-Gold-Plus-How-to-Flash-Installer-Image)
 * [Gold Pro](https://help.firewalla.com/hc/en-us/articles/30466076408467-Firewalla-Gold-Pro-How-to-Flash-Installer-Image)
